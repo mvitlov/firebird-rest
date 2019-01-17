@@ -1,7 +1,7 @@
 {
   "name": "firebird-rest",
   "version": "0.0.1",
-  "description": "REST API for FirebirdSQL",
+  "description": "REST Server for FirebirdSQL",
   "main": "./src/main.js",
   "bin": {
     "firebird": "./src/main.js"
@@ -17,13 +17,16 @@
     "api",
     "node"
   ],
-  "author": {
-    "name": "Marin Vitlov",
-    "email": "marin.vitlov@gmail.com",
-    "url": "http://digitalgoods.eu"
+  "author": "Marin Vitlov <marin.vitlov@gmail.com> (https://github.com/mvitlov/)",
+  "homepage": "https://github.com/mvitlov/firebird-rest",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvitlov/firebird-rest.git"
   },
-  "repository": {},
-  "bugs": {},
+  "bugs": {
+    "url": "https://github.com/mvitlov/firebird-rest/issues",
+    "email": "marin.vitlov@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "start": "node src/main.js"

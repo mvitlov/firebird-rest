@@ -1,6 +1,3 @@
 node_modules
 .vscode
-yarn.lock
-Dockerfile
-README.md
-package.json_TST
+package-lock.json
