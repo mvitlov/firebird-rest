@@ -2,8 +2,8 @@ const Firebird = require('node-firebird-dev');
 const Options = require('./options')();
 const convertBufferArray = require('./convertBufferArray');
 
-function sqlQuery(param) {
-  return function(req, res) {
+const sqlQuery = param => {
+  return (req, res) => {
     let result = [];
     const sql = req[param].sql;
 
@@ -11,20 +11,21 @@ function sqlQuery(param) {
       return res.send([]);
     }
 
-    Firebird.attach(Options, function(err, db) {
+    Firebird.attach(Options, (err, db) => {
       if (err) {
         db.detach();
         res.status(400); // BAD REQUEST
         return res.send(`\n${err.message}\n`);
       }
 
-      db.query(sql, function(err, data) {
+      db.query(sql, (err, data) => {
         if (err) {
           db.detach();
           res.status(400); // BAD REQUEST
           return res.send(`\n${err.message}\n`);
         }
         db.detach();
+        console.log(data);
         data.forEach(row => {
           let tempObj = {};
           Object.keys(row).forEach(el => {
@@ -36,6 +37,6 @@ function sqlQuery(param) {
       });
     });
   };
-}
+};
 
 module.exports = sqlQuery;

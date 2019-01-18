@@ -7,7 +7,7 @@ flags.defineString('u', 'SYSDBA', 'Firebird User');
 flags.defineString('pw', 'masterkey', 'Firebird User Password');
 flags.defineString('r', null, 'Firebird User Role');
 
-function options() {
+const options = () => {
   flags.parse();
 
   return {
@@ -18,6 +18,6 @@ function options() {
     password: flags.get('pw'),
     role: flags.get('r')
   };
-}
+};
 
 module.exports = options;
