@@ -13,32 +13,34 @@ npm install -g firebird-rest
 ## Usage
 
 ```
-Usage: firebird [flags]
+Usage: firebird-rest [options]
 ```
 
 ## Flags
 
 ```
---h:  Firebird host (default: "localhost")
---p:  Firebird port (default: 3050)
---db: Firebird database path (default:"")
---u:  Firebird User (default: "SYSDBA")
---pw: User password (default: "masterkey")
---r:  User role (default: null)
+--port Port that app listens to (default: 4444)
+--h    Firebird host (default: "localhost")
+--p    Firebird port (default: 3050)
+--db   Firebird database path (default:"")
+--u    Firebird User (default: "SYSDBA")
+--pw   User password (default: "masterkey")
+--r    User role (default: null)
 ```
 
 ## Usage
 
 ### Port
 
-This package is preconfigured to listen on **TCP port 4444**, so please make sure you add it to the list of accessible ports. For testing purposes you can use
+This package is preconfigured to listen on **TCP port 4444**, however, you can specify any port you want with ``--port`` flag. If you do that, make sure you add that port to the list of accessible ports in firewall settings.  
+For testing purposes you can use:
 
 - [Postman](https://www.getpostman.com/)
 - `curl` command from the console
 - your browser by pointing it to:
 
 ```
-http://localhost:4444/?sql=<your sql query>
+http://localhost:<port>/?sql=<your sql query>
 ```
 
 ### Example

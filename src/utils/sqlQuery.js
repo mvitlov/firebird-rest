@@ -1,5 +1,5 @@
 const Firebird = require('node-firebird-dev');
-const Options = require('./options')();
+const Options = require('./flagParams').options();
 const convertBufferArray = require('./convertBufferArray');
 
 const sqlQuery = param => {
@@ -8,7 +8,7 @@ const sqlQuery = param => {
     const sql = req[param].sql;
 
     if (!sql) {
-      return res.send([]);
+      return res.send(['No valid SQL query found! Please enter a valid SQL query.']);
     }
 
     Firebird.attach(Options, (err, db) => {
@@ -25,7 +25,8 @@ const sqlQuery = param => {
           return res.send(`\n${err.message}\n`);
         }
         db.detach();
-        console.log(data);
+
+        // CONVERT RAW QUERY RESULT AND RETURN JSON
         data.forEach(row => {
           let tempObj = {};
           Object.keys(row).forEach(el => {
