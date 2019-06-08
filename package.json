@@ -1,6 +1,6 @@
 {
   "name": "firebird-rest",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "REST Server for FirebirdSQL",
   "main": "./src/main.js",
   "bin": {
