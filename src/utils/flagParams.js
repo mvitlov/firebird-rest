@@ -1,5 +1,5 @@
 const flags = require('flags');
-var fs = require("fs");
+var fs = require("file-system");
 const path = require('path');
 var config = fs.readFileSync(path.resolve("./utils","./config.json"));
 var jsonConfig = JSON.parse(config);
