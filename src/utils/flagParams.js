@@ -1,7 +1,7 @@
 const flags = require('flags');
 var fs = require("file-system");
 const path = require('path');
-var config = fs.readFileSync(path.resolve("./utils","./config.json"));
+var config = fs.readFileSync(path.resolve(require('path').dirname(require.main.filename) + "/utils","./config.json"));
 var jsonConfig = JSON.parse(config);
 
 flags.defineNumber('port', '4444', 'Port that app listens to');
