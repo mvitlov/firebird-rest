@@ -6,6 +6,11 @@ const sqlQuery = param => {
   return (req, res) => {
     let result = [];
     const properties = req[param];
+    
+    Options.database = properties.database || Options.database;
+    Options.user = properties.user || Options.user;
+    Options.password = properties.password || Options.password;
+    Options.role = properties.role || Options.role;
 
     const sql = properties.sql;
     const params = properties.params;
