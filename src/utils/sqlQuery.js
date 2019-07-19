@@ -5,7 +5,10 @@ const convertBufferArray = require('./convertBufferArray');
 const sqlQuery = param => {
   return (req, res) => {
     let result = [];
-    const sql = req[param].sql;
+    const properties = req[param];
+
+    const sql = properties.sql;
+    const params = properties.params;
 
     if (!sql) {
       return res.send(['No valid SQL query found! Please enter a valid SQL query.']);
@@ -18,7 +21,7 @@ const sqlQuery = param => {
         return res.send(`\n${err.message}\n`);
       }
 
-      db.query(sql, (err, data) => {
+      db.query(sql, params, (err, data) => {
         if (err) {
           db.detach();
           res.status(400); // BAD REQUEST
