@@ -34,18 +34,32 @@ const sqlQuery = param => {
         }
         db.detach();
 
-        // CONVERT RAW QUERY RESULT AND RETURN JSON
-        data.forEach(row => {
-          let tempObj = {};
-          Object.keys(row).forEach(el => {
-            tempObj[el] = convertBufferArray(row[el]);
-          });
-          result.push(tempObj);
-        });
+        if (data) {
+          if (Array.isArray(data)) {
+            // CONVERT RAW QUERY RESULT AND RETURN JSON
+            data.forEach(row => {
+              const newRow = convertRow(row);
+              result.push(newRow);
+            });
+          } else {
+            const newRow = convertRow(data);
+            result = newRow;
+          }
+        }
+
         return res.send(result);
       });
     });
   };
 };
+
+function convertRow(row) {
+  let newRow = {};
+  Object.keys(row).forEach(el => {
+    newRow[el] = convertBufferArray(row[el]);
+  });
+
+  return newRow;
+}
 
 module.exports = sqlQuery;
