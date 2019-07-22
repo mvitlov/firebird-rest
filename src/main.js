@@ -32,7 +32,7 @@ app1.get('/', sqlQuerys.sqlQuery1('query')); // parse SQL queries via http GET r
 app1.post('/', sqlQuerys.sqlQuery1('body')); // parse SQL queries via http POST request
 
 // RUN FIREBIRD SERVER
-app1.listen(port1, () => console.log(`Database 1:\nFirebird Server up and running on\nhttp://localhost:${port1}`));
+app1.listen(port1, () => console.log(`Database 1:\n\rFirebird Server up and running on\n\rhttp://localhost:${port1}`));
 
 if (flagMode == "False") {
   if (activeDBs.db2 == "True") {
@@ -54,7 +54,7 @@ if (flagMode == "False") {
     app2.get('/', sqlQuerys.sqlQuery2('query')); // parse SQL queries via http GET request
     app2.post('/', sqlQuerys.sqlQuery2('body')); // parse SQL queries via http POST request
 
-    app2.listen(port2, () => console.log(`Database 2:\nFirebird Server up and running on\nhttp://localhost:${port2}`));
+    app2.listen(port2, () => console.log(`Database 2:\n\rFirebird Server up and running on\n\rhttp://localhost:${port2}`));
   }
   if (activeDBs.db3 == "True") {
     const port3 = require('./utils/flagParams').serverPort3();
@@ -75,7 +75,7 @@ if (flagMode == "False") {
     app3.get('/', sqlQuerys.sqlQuery3('query')); // parse SQL queries via http GET request
     app3.post('/', sqlQuerys.sqlQuery3('body')); // parse SQL queries via http POST request
 
-    app3.listen(port3, () => console.log(`Database 3:\nFirebird Server up and running on\nhttp://localhost:${port3}`));
+    app3.listen(port3, () => console.log(`Database 3:\n\rFirebird Server up and running on\n\rhttp://localhost:${port3}`));
   }
   if (activeDBs.db4 == "True") {
     const port4 = require('./utils/flagParams').serverPort4();
@@ -96,7 +96,7 @@ if (flagMode == "False") {
     app4.get('/', sqlQuerys.sqlQuery4('query')); // parse SQL queries via http GET request
     app4.post('/', sqlQuerys.sqlQuery4('body')); // parse SQL queries via http POST request
 
-    app4.listen(port4, () => console.log(`Database 4:\nFirebird Server up and running on\nhttp://localhost:${port4}`));
+    app4.listen(port4, () => console.log(`Database 4:\n\rFirebird Server up and running on\n\rhttp://localhost:${port4}`));
   }
   if (activeDBs.db5 == "True") {
     const port5 = require('./utils/flagParams').serverPort5();
@@ -117,7 +117,7 @@ if (flagMode == "False") {
     app5.get('/', sqlQuerys.sqlQuery5('query')); // parse SQL queries via http GET request
     app5.post('/', sqlQuerys.sqlQuery5('body')); // parse SQL queries via http POST request
 
-    app5.listen(port5, () => console.log(`Database 5:\nFirebird Server up and running on\nhttp://localhost:${port5}`));
+    app5.listen(port5, () => console.log(`Database 5:\n\rFirebird Server up and running on\n\rhttp://localhost:${port5}`));
   }
 
 }
